@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +6,9 @@ import 'package:pages/Page1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
 
-
 class Page2 extends StatefulWidget {
-
   final String url;
+
   const Page2({Key key, this.url}) : super(key: key);
 
   @override
@@ -18,7 +16,6 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> {
-
   VideoPlayerController playerController;
   bool looping;
   bool autoplay;
@@ -42,18 +39,21 @@ class _Page2State extends State<Page2> {
           });
         }
         Timer.run(() {
-          this.setState((){
+          this.setState(() {
             _position = playerController.value.position;
           });
         });
         setState(() {
           _duration = playerController.value.duration;
         });
-        _duration?.compareTo(_position) == 0 || _duration?.compareTo(_position) == -1 ? this.setState((){
-          _isEnd = true;
-        }) : this.setState((){
-          _isEnd = false;
-        });
+        _duration?.compareTo(_position) == 0 ||
+                _duration?.compareTo(_position) == -1
+            ? this.setState(() {
+                _isEnd = true;
+              })
+            : this.setState(() {
+                _isEnd = false;
+              });
       })
       ..initialize();
 
@@ -62,7 +62,6 @@ class _Page2State extends State<Page2> {
     playerController.setLooping(true);
 
     getvideostatus();
-
   }
 
   @override
@@ -77,18 +76,15 @@ class _Page2State extends State<Page2> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     userID = prefs.get('userID');
 
-    if(_position.inSeconds == 0 && playerController.value.isPlaying){
+    if (_position.inSeconds == 0 && playerController.value.isPlaying) {
       setState(() {
-        // _counter++;
-        firestore.collection('VideoStatus').doc(userID).update(
-            {
-              "viewcount" : "${cnt == null ? 0 + _counter: cnt + _counter}",
-            }).then((value){
+        firestore.collection('VideoStatus').doc(userID).update({
+          "viewcount": "${cnt == null ? 0 + _counter : cnt + _counter}",
+        }).then((value) {
           print('value');
         });
       });
-    }
-    else {
+    } else {
       setState(() {
         _counter;
       });
@@ -107,7 +103,7 @@ class _Page2State extends State<Page2> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     userID = prefs.get('userID');
 
-    firestore.collection('VideoStatus').doc(userID).get().then((value){
+    firestore.collection('VideoStatus').doc(userID).get().then((value) {
       setState(() {
         count = value.data()['viewcount'].toString();
         cnt = int.parse(count);
@@ -115,13 +111,11 @@ class _Page2State extends State<Page2> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-
           Container(
             height: MediaQuery.of(context).size.height,
             child: FutureBuilder(
@@ -145,42 +139,17 @@ class _Page2State extends State<Page2> {
             child: CircleAvatar(
               backgroundColor: Colors.white,
               child: IconButton(
-                icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
-                onPressed: (){
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) => Page1()
-                  ));
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Page1()));
                 },
               ),
             ),
           ),
-
-          // Positioned(
-          //     top: 100,
-          //     left: 30,
-          //     child: Column(
-          //       children: [
-          //         // Text('Duration ${_duration.toString()}',
-          //         //   style: TextStyle(
-          //         //       color: Colors.white,
-          //         //       fontSize: 22,
-          //         //       fontWeight: FontWeight.w600
-          //         //   ),),
-          //         // Text('Position ${_position.toString()}',
-          //         //   style: TextStyle(
-          //         //       color: Colors.white,
-          //         //       fontSize: 22,
-          //         //       fontWeight: FontWeight.w600
-          //         //   ),),
-          //         // Text('isEnd?  $_isEnd',
-          //         //   style: TextStyle(
-          //         //       color: Colors.white,
-          //         //       fontSize: 22,
-          //         //       fontWeight: FontWeight.w600
-          //         //   ),),
-          //       ],
-          //     )
-          // ),
 
           Positioned(
             right: 30,
@@ -197,7 +166,9 @@ class _Page2State extends State<Page2> {
                 });
               },
               child: Icon(
-                playerController.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                playerController.value.isPlaying
+                    ? Icons.pause
+                    : Icons.play_arrow,
               ),
             ),
           ),
@@ -211,10 +182,9 @@ class _Page2State extends State<Page2> {
               child: Text(
                 'Live',
                 style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600
-                ),
+                    color: Colors.green,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600),
               ),
             ),
           ),
@@ -231,7 +201,6 @@ class _Page2State extends State<Page2> {
               ),
             ),
           ),
-
         ],
       ),
     );

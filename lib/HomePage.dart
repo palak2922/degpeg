@@ -21,7 +21,6 @@ class _WelcomePageState extends State<WelcomePage> {
   //--------------------------------------------------------------------------------google sign in method
 
   bool _isLoggedIn = false;
-  // User firebaseUser = FirebaseAuth.instance.currentUser;
   var userID;
 
   _login() async{

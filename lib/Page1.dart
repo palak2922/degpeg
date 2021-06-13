@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'HomePage.dart';
 import 'Page2.dart';
 
-
 class Page1 extends StatefulWidget {
   const Page1({Key key}) : super(key: key);
 
@@ -12,12 +11,10 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-
   Future<void> _signOut() async {
     await FirebaseAuth.instance.signOut();
-    Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => WelcomePage()
-    ));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => WelcomePage()));
   }
 
   @override
@@ -30,9 +27,9 @@ class _Page1State extends State<Page1> {
           child: GridView.count(
             crossAxisCount: 2,
             children: <Widget>[
-
               Padding(
-                padding: const EdgeInsets.only(top: 10, right: 5, left: 5, bottom: 5),
+                padding: const EdgeInsets.only(
+                    top: 10, right: 5, left: 5, bottom: 5),
                 child: InkWell(
                   child: Card(
                     elevation: 14,
@@ -50,16 +47,19 @@ class _Page1State extends State<Page1> {
                       ),
                     ),
                   ),
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                      builder: (context) => Page2(url: 'images/v3.webm',)
-                    ));
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Page2(
+                                  url: 'images/v3.webm',
+                                )));
                   },
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top: 10, right: 5, left: 5, bottom: 5),
+                padding: const EdgeInsets.only(
+                    top: 10, right: 5, left: 5, bottom: 5),
                 child: InkWell(
                   child: Card(
                     elevation: 14,
@@ -77,16 +77,19 @@ class _Page1State extends State<Page1> {
                       ),
                     ),
                   ),
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) => Page2(url: 'images/v4.mp4',)
-                    ));
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Page2(
+                                  url: 'images/v4.mp4',
+                                )));
                   },
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top: 10, right: 5, left: 5, bottom: 5),
+                padding: const EdgeInsets.only(
+                    top: 10, right: 5, left: 5, bottom: 5),
                 child: InkWell(
                   child: Card(
                     elevation: 14,
@@ -104,16 +107,19 @@ class _Page1State extends State<Page1> {
                       ),
                     ),
                   ),
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) => Page2(url: 'images/v5.mp4',)
-                    ));
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Page2(
+                                  url: 'images/v5.mp4',
+                                )));
                   },
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top: 10, right: 5, left: 5, bottom: 5),
+                padding: const EdgeInsets.only(
+                    top: 10, right: 5, left: 5, bottom: 5),
                 child: InkWell(
                   child: Card(
                     elevation: 14,
@@ -131,16 +137,19 @@ class _Page1State extends State<Page1> {
                       ),
                     ),
                   ),
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) => Page2(url: 'images/v3.webm',)
-                    ));
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Page2(
+                                  url: 'images/v3.webm',
+                                )));
                   },
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top: 10, right: 5, left: 5, bottom: 5),
+                padding: const EdgeInsets.only(
+                    top: 10, right: 5, left: 5, bottom: 5),
                 child: InkWell(
                   child: Card(
                     elevation: 14,
@@ -158,16 +167,19 @@ class _Page1State extends State<Page1> {
                       ),
                     ),
                   ),
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) => Page2(url: 'images/v4.mp4',)
-                    ));
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Page2(
+                                  url: 'images/v4.mp4',
+                                )));
                   },
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top: 10, right: 5, left: 5, bottom: 5),
+                padding: const EdgeInsets.only(
+                    top: 10, right: 5, left: 5, bottom: 5),
                 child: InkWell(
                   child: Card(
                     elevation: 14,
@@ -185,16 +197,19 @@ class _Page1State extends State<Page1> {
                       ),
                     ),
                   ),
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) => Page2(url: 'images/v5.mp4',)
-                    ));
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Page2(
+                                  url: 'images/v5.mp4',
+                                )));
                   },
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top: 10, right: 5, left: 5, bottom: 5),
+                padding: const EdgeInsets.only(
+                    top: 10, right: 5, left: 5, bottom: 5),
                 child: InkWell(
                   child: Card(
                     elevation: 14,
@@ -212,14 +227,16 @@ class _Page1State extends State<Page1> {
                       ),
                     ),
                   ),
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) => Page2(url: 'images/v3.webm',)
-                    ));
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Page2(
+                                  url: 'images/v3.webm',
+                                )));
                   },
                 ),
               ),
-
             ],
           ),
         ),
@@ -235,5 +252,3 @@ class _Page1State extends State<Page1> {
     );
   }
 }
-
-
